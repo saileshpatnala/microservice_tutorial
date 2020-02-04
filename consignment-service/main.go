@@ -29,7 +29,7 @@ type Repository struct {
 	consignments []*pb.Consignment
 }
 
-// Create a new consignment
+// Create - function to create new consignment in repository
 func (repo *Repository) Create(consignment *pb.Consignment) (*pb.Consignment, error) {
 	repo.mu.Lock()
 	updated := append(repo.consignments, consignment)
@@ -38,7 +38,7 @@ func (repo *Repository) Create(consignment *pb.Consignment) (*pb.Consignment, er
 	return consignment, nil
 }
 
-// Get all consignments
+// GetAll - function to get all consignments from repository
 func (repo *Repository) GetAll() []*pb.Consignment {
 	return repo.consignments
 }
